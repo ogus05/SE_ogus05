@@ -33,10 +33,9 @@ class BookManagerTest {
 			System.out.printf("{id: '%d', 제목: '%s', 저자 : '%s', 출판년도 : '%d'}\n", retBook.id, retBook.title, retBook.author, retBook.publicDate);			
 			
 			
-			assertThrows(BookManagerException.class, () -> bookManager.AddBook(testCase.id, testCase.title, testCase.author, testCase.publicDate));
-			
+			BookManagerException ex = assertThrows(BookManagerException.class, () -> bookManager.AddBook(testCase.id, testCase.title, testCase.author, testCase.publicDate));
+			System.out.println(ex.getMessage());
 		} catch(BookManagerException exc){
-			assertAll();
 		}
 		
 	}
@@ -51,10 +50,10 @@ class BookManagerTest {
 			System.out.printf("검색결과:\n");
 			System.out.printf("{id: '%d', 제목: '%s', 저자 : '%s', 출판년도 : '%d'}\n", retBook.id, retBook.title, retBook.author, retBook.publicDate);			
 			
-			assertThrows(BookManagerException.class, () -> bookManager.SearchBook(testCases.get(1).id));
-			
+			BookManagerException ex = assertThrows(BookManagerException.class, () -> bookManager.SearchBook(testCases.get(1).id));
+			System.out.println(ex.getMessage());
+
 		} catch(BookManagerException exc){
-			assertAll();
 		}
 		
 	}
@@ -69,10 +68,10 @@ class BookManagerTest {
 			System.out.printf("{id: '%d', 제목: '%s', 저자 : '%s', 출판년도 : '%d'}도서가 삭제되었습니다.\n", retBook.id, retBook.title, retBook.author, retBook.publicDate);		
 			
 			
-			assertThrows(BookManagerException.class, () -> bookManager.RemoveBook(testCases.get(1).id));
-			
+			BookManagerException ex = assertThrows(BookManagerException.class, () -> bookManager.RemoveBook(testCases.get(1).id));
+			System.out.println(ex.getMessage());
+
 		} catch(BookManagerException exc){
-			assertAll();
 		}
 		
 	}
