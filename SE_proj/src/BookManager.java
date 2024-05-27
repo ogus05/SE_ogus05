@@ -4,20 +4,20 @@ import java.util.Iterator;
 
 
 public class BookManager {
-	ArrayList<Book> books;
+	ArrayList<Book> bookList;
 	
 	public BookManager() {
-		books = new ArrayList<Book>();
+		bookList = new ArrayList<Book>();
 	}
 	
 	
 	private Book InnerSearch(int in_id) {
-		Iterator<Book> iter = books.iterator();
+		Iterator<Book> itr_book = bookList.iterator();
 		
-		while(iter.hasNext()) {
-			Book currentBook = iter.next();
-			if(currentBook.id == in_id) {
-				return currentBook;
+		while(itr_book.hasNext()) {
+			Book bookInCurrentLoop = itr_book.next();
+			if(bookInCurrentLoop.id == in_id) {
+				return bookInCurrentLoop;
 			}
 		}
 		return null;
@@ -28,8 +28,7 @@ public class BookManager {
 			throw new BookManagerException("해당 ID(%d)는 이미 존재합니다.\n");
 		} else {
 			Book book = new Book(in_id, in_title, in_author, in_publicDate);
-			System.out.printf("{id: '%d', 제목: '%s', 저자 : '%s', 출판년도 : '%d'}도서가 추가되었습니다.\n", book.id, book.title, book.author, book.publicDate);		
-			books.add(book);
+			bookList.add(book);
 			return book;
 		}
 	}
@@ -47,10 +46,8 @@ public class BookManager {
 	
 	public Book RemoveBook(int in_id) throws BookManagerException{
 		Book book = InnerSearch(in_id);
-		if(book != null) {
-			
-			System.out.printf("{id: '%d', 제목: '%s', 저자 : '%s', 출판년도 : '%d'}도서가 삭제되었습니다.\n", book.id, book.title, book.author, book.publicDate);		
-			books.remove(book);
+		if(book != null) {	
+			bookList.remove(book);
 			return book;
 		} else {
 			throw new BookManagerException("해당 ID(%d)의 도서를 찾을 수 없습니다.\n");
