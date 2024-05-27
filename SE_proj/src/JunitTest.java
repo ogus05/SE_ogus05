@@ -1,5 +1,5 @@
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class JunitTest {
 
 	private Junit junit;
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		junit = new Junit();
 		System.out.println("새 Junit 인스턴스 생성");
