@@ -21,7 +21,7 @@ pipeline{
 		      	//JUnit 5 테스트 실행을 위한 classpath 설정.
 		        def classpath = "classes;lib\\; C:\\Users\\ogus05\\.p2\\pool\\plugins\\*"
 		        //JUnit 5 테스트 실행
-		        bat 'java -cp classes;lib\\; "C:\\Users\\ogus05\\.p2\\pool\\plugins\\*" org.junit.platform.console.ConsoleLauncher --scan-classpath > test_results.txt'
+		        bat 'java -cp classes;lib\\; "C:\\Users\\ogus05\\.p2\\pool\\plugins\\junit-jupiter-api_5.10.2.jar" org.junit.platform.console.ConsoleLauncher --scan-classpath > test_results.txt'
 			}      		
       }
     }
